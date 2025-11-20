@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:id="@+id/eighteenth_menu">
+
+    <ImageView
+        android:id="@+id/status_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/status_bar"
+        app:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/parrot"
+        android:layout_width="1000dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="-320dp"
+        android:layout_marginTop="74dp"
+        android:src="@drawable/parrot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/EditStory"
+        android:layout_width="345dp"
+        android:layout_height="100dp"
+        android:src="@drawable/edit_story"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="645dp"
+        app:tint="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TYPE"
+        android:textStyle="bold"
+        android:textColor="@color/light_magenta"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="675dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="LIVE"
+        android:textStyle="bold"
+        android:textColor="@color/light_magenta"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="675dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="NORMAL"
+        android:textStyle="bold"
+        android:textColor="@color/magenta"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="675dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="BOOMERANG"
+        android:textStyle="bold"
+        android:textColor="@color/light_magenta"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="675dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="SUPERZOOM"
+        android:textStyle="bold"
+        android:textColor="@color/light_magenta"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="675dp"/>
+
+    <ImageView
+        android:id="@+id/CircleStory"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/circle_background"
+        android:background="@drawable/circle_background"
+        android:backgroundTint="@color/light_grey"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="575dp"
+        app:tint="@color/white"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_indicator"
+        app:tint="@color/light_magenta"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="730dp"
+        android:layout_marginLeft="110dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

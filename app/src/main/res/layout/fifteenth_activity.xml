@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:id="@+id/fifteenth_menu">
+
+    <ImageView
+        android:id="@+id/status_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/status_bar"
+        app:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/parrot"
+        android:layout_width="1000dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="-320dp"
+        android:layout_marginTop="74dp"
+        android:src="@drawable/parrot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/h1"
+        android:layout_width="70dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="79dp"
+        android:src="@drawable/curved_rectangle"
+        app:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/h2"
+        android:layout_width="70dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="79dp"
+        android:src="@drawable/curved_rectangle"
+        app:tint="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/h3"
+        android:layout_width="70dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="79dp"
+        android:src="@drawable/curved_rectangle"
+        app:tint="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/h4"
+        android:layout_width="70dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="269dp"
+        android:layout_marginTop="79dp"
+        android:src="@drawable/curved_rectangle"
+        app:tint="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/New"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:src="@drawable/plus"
+        android:background="@drawable/circle_border"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="85dp"/>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Highlight"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="87dp"/>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="December 3, 2023"
+        android:textSize="12sp"
+        android:textColor="@color/light_grey"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="87dp"/>
+
+    <ImageView
+        android:id="@+id/soundWave"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/soundwave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="105dp"/>
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artist      Song Title >"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="100dp"/>
+
+    <ImageView
+        android:id="@+id/dot"
+        android:layout_width="3dp"
+        android:layout_height="3dp"
+        android:src="@drawable/dot"
+        app:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="108dp"/>
+
+    <ImageView
+        android:id="@+id/Cross"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/plus"
+        android:rotation="45"
+        app:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="315dp"
+        android:layout_marginTop="85dp"/>
+
+    <ImageView
+        android:id="@+id/highlightOptions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_highlight"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="670dp"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="80dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

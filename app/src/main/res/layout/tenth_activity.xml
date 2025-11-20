@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#965959"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/face2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/face2"
+        android:background="@drawable/curved_rectangle"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="190dp"/>
+
+    <TextView
+        android:id="@+id/Friend_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friend"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="400dp"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="03:12"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="440dp"/>
+
+    <ImageView
+        android:id="@+id/callEnd"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/call_end"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="600dp"/>
+
+    <ImageView
+        android:id="@+id/volume"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/sound_on"
+        android:outlineProvider="background"
+        app:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="625dp"/>
+
+    <ImageView
+        android:id="@+id/commentBox"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/comment_box"
+        android:outlineProvider="background"
+        app:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="625dp"/>
+
+    <Button
+        android:id="@+id/callEndButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="610dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

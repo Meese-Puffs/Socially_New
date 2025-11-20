@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/sixth_menu">
+
+    <ImageView
+        android:id="@+id/status_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/status_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/chevron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/chevron_left"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="85dp"/>
+
+    <Button
+        android:id="@+id/messageButton0"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ahmad_Kamran"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="85dp"/>
+
+    <ImageView
+        android:id="@+id/Chevron"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/chevron_left"
+        android:rotation="270"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="226dp"
+        android:layout_marginTop="88dp"/>
+
+    <ImageView
+        android:id="@+id/Plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/plus"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="85dp"/>
+
+    <FrameLayout
+        android:id="@+id/searchBarContainer"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="120dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/search_bar">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/search"/>
+
+        <TextView
+            android:id="@+id/subtitle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="45dp"
+            android:text="Search"
+            android:textSize="20sp"
+            android:textColor="@color/light_magenta"
+            android:clickable="false"
+            android:focusable="false"/>
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/face1"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="joshua_l"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="190dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Have a nice day, bro!"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="205dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="213dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="now"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="205dp"/>
+
+    <ImageView
+        android:id="@+id/camera1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/camera"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="200dp"/>
+
+    <Button
+        android:id="@+id/messageButton1"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="180dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/face2"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="karennne"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="260dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="I heard this is a good movie, s..."
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="275dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="283dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="now"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="275dp"/>
+
+    <ImageView
+        android:id="@+id/camera2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/camera"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="270dp"/>
+
+    <Button
+        android:id="@+id/messageButton2"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="250dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/face3"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="320dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="martini_rond"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="330dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="See you on the next meeting!"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="345dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="353dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="15m"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="345dp"/>
+
+
+    <ImageView
+        android:id="@+id/camera3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/camera"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="340dp"/>
+
+    <Button
+        android:id="@+id/messageButton3"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="320dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/face4"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="390dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="andrewww_"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="400dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sounds good"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="415dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="423dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="20m"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="415dp"/>
+
+    <ImageView
+        android:id="@+id/camera4"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/camera"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="410dp"/>
+
+    <Button
+        android:id="@+id/messageButton4"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="390dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/face5"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="460dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="kiero_d"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="470dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="This new design looks cool, b..."
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="485dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="493dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1m"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="485dp"/>
+
+    <ImageView
+        android:id="@+id/camera5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/camera"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="480dp"/>
+
+    <Button
+        android:id="@+id/messageButton5"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="460dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/face1"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="530dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="maxjacobson"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="540dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Thank you, bro!"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="555dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="563dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="2h"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="555dp"/>
+
+    <ImageView
+        android:id="@+id/camera6"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/camera"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="550dp"/>
+
+    <Button
+        android:id="@+id/messageButton6"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="530dp"/>
+
+    <ImageView
+        android:id="@+id/camera"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/camera"
+        app:tint="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="660dp"/>
+
+    <TextView
+        android:id="@+id/cameratext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Camera"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="670dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_indicator"
+        app:tint="@color/light_magenta"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="750dp"
+        android:layout_marginLeft="110dp"/>
+
+    <Button
+        android:id="@+id/CameraButton"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="640dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

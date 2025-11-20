@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/sixth_menu">
+
+    <ImageView
+        android:id="@+id/status_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/status_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/EditPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="130dp"/>
+
+    <TextView
+        android:id="@+id/Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="300dp"/>
+
+    <View
+        android:id="@+id/section"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_grey"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="117dp"/>
+
+    <ImageView
+        android:id="@+id/Me"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ahmad"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="150dp"/>
+
+    <TextView
+        android:id="@+id/ChangePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Profile Photo"
+        android:textSize="17sp"
+        android:textColor="@color/light_magenta"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="100dp"/>
+
+    <TextView
+        android:id="@+id/Name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/Name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ahmad Kamran"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/User1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/User2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ahmad_Kamran"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/Website1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Website"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/Website2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Website"
+        android:textSize="17sp"
+        android:textColor="@color/light_grey"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/Bio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bio"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="440dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/Bio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digital goodies designer"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="440dp"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/Bio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Everything is designed."
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="460dp"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/Switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch to Proffesional account"
+        android:textSize="17sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/Email1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="540dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/Email2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="something@gmail.com"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="540dp"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/Phone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="580dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/Phone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+1 202 555 0147"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="580dp"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/Gender1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="620dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/Gender2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="620dp"
+        android:layout_marginLeft="140dp"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_indicator"
+        app:tint="@color/light_magenta"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="770dp"
+        android:layout_marginLeft="110dp"/>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"/>
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="80dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

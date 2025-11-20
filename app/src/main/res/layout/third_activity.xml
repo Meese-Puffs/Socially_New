@@ -1,0 +1,138 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/third_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/status_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/status_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socially"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/magenta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="170dp"/>
+
+    <ImageView
+        android:id="@+id/Ahmad"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ahmad"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="270dp"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ahmad_Kamran"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="105dp"
+        android:layout_marginTop="410dp"
+        />
+
+    <TextView
+        android:id="@+id/log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="@drawable/rounded_rectangle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="50dp"/>
+
+    <TextView
+        android:id="@+id/Switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch accounts"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/light_magenta"  app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="360dp"
+        />
+    
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="650dp"/>
+
+    <TextView
+        android:id="@+id/No_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account?"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="670dp"
+        />
+
+    <TextView
+        android:id="@+id/Sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up."
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/magenta"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="670dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_indicator"
+        app:tint="@color/light_magenta"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="720dp"
+        android:layout_marginLeft="110dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

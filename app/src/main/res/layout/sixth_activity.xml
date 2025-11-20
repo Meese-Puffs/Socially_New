@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/sixth_menu">
+
+    <ImageView
+        android:id="@+id/status_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/status_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+
+    <FrameLayout
+        android:id="@+id/searchBarContainer"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/search_bar">
+
+        <Button
+            android:id="@+id/searchBarButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/search"/>
+
+        <TextView
+            android:id="@+id/subtitle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="45dp"
+            android:text="Search"
+            android:textSize="23sp"
+            android:textColor="@color/light_magenta"
+            android:clickable="false"
+            android:focusable="false"/>
+    </FrameLayout>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/searchBarContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/suggestion_box"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/lock"
+                app:tint="@color/light_magenta"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="20dp"/>
+
+
+            <TextView
+        android:id="@+id/suggestion1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shop"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="55dp"/>
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/suggestion_box"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="120dp"/>
+
+    <TextView
+        android:id="@+id/suggestion2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Style"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="135dp"/>
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/suggestion_box"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="205dp"/>
+
+    <TextView
+        android:id="@+id/suggestion3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sports"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="220dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/suggestion_box"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="300dp"/>
+
+    <TextView
+        android:id="@+id/suggestion4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Auto"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="308dp"/>
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/suggestion_box"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="370dp"/>
+
+    <TextView
+        android:id="@+id/suggestion5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="380dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="170dp"
+        />
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="168dp"
+        android:layout_marginLeft="152dp"
+        />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="313dp"
+        />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="457dp"
+        />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="153dp"
+        />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="265dp"
+        />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="485dp"
+        android:layout_marginLeft="153dp"
+        />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="486dp"
+        android:layout_marginLeft="265dp"
+        />
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="598dp"
+        android:layout_marginLeft="0dp"
+        />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/crystals_modified"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="591dp"
+        android:layout_marginLeft="223dp"
+        />
+
+    <ImageView
+        android:id="@+id/active_tab_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/active_tab_search"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="670dp"/>
+
+    <ImageView
+        android:id="@+id/Heart"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/like"
+        app:tint="@color/light_magenta"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="242dp"
+        android:layout_marginTop="682dp"/>
+
+    <Button
+        android:id="@+id/likesButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="680dp"
+        android:background="@android:color/transparent"
+        />
+
+    <Button
+        android:id="@+id/homebutton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="680dp"
+        android:background="@android:color/transparent"
+        />
+
+    <ImageView
+        android:id="@+id/MiniMe"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ahmad"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="313dp"
+        android:layout_marginTop="680dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
