@@ -6,15 +6,20 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 
-class UserAdapter(private val users: List<SeventhActivity.User>) :
-    RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+// NOTE: This adapter assumes you have a layout file named 'user_item.xml' in your res/layout
+// containing a profileImageView, usernameTextView, and fullNameTextView.
+class UserAdapter(
+    private var users: List<User>,
+    private val clickListener: (User) -> Unit
+) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val profileImage: ImageView = itemView.findViewById(R.id.userProfileImage)
-        val username: TextView = itemView.findViewById(R.id.usernameTextView)
-        val fullName: TextView = itemView.findViewById(R.id.fullNameTextView)
+    // You need to define R.layout.user_item and the IDs within it.
+    class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        // These IDs must exist in R.layout.user_item
+        val profileImage: ImageView = view.findViewById(R.id.profileImageView)
+        val username: TextView = view.findViewById(R.id.usernameTextView)
+        val fullName: TextView = view.findViewById(R.id.fullNameTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -25,16 +30,20 @@ class UserAdapter(private val users: List<SeventhActivity.User>) :
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = users[position]
-        holder.username.text = user.username
+        holder.username.text = "@${user.username}"
         holder.fullName.text = user.fullName
+        // In a real app, use a library like Glide or Picasso to load user.profileImage URL into holder.profileImage
 
-        // Load profile image using Glide or use placeholder
-        Glide.with(holder.itemView.context)
-            .load(user.profileImage)
-            .placeholder(R.drawable.face1)
-            .circleCrop()
-            .into(holder.profileImage)
+        holder.itemView.setOnClickListener {
+            clickListener(user)
+        }
     }
 
-    override fun getItemCount(): Int = users.size
+    override fun getItemCount() = users.size
+
+    // Efficient way to update the results list
+    fun updateUsers(newUsers: List<User>) {
+        users = newUsers
+        notifyDataSetChanged()
+    }
 }

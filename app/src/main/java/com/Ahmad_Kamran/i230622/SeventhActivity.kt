@@ -2,6 +2,7 @@ package com.Ahmad_Kamran.i230622
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -25,7 +26,7 @@ import java.util.concurrent.Executors
 
 class SeventhActivity : AppCompatActivity() {
 
-    private var selectedTab = "Top"
+    private var selectedTab = "Top" // Tracks the currently selected filter tab
     private lateinit var resultsRecyclerView: RecyclerView
     private var userAdapter: UserAdapter? = null
     private lateinit var searchEditText: EditText
@@ -37,11 +38,16 @@ class SeventhActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Ensure you have R.id.tabTop, R.id.tabAccounts, R.id.tabMedia in your layout
         setContentView(R.layout.seventh_activity)
 
         resultsRecyclerView = findViewById(R.id.resultsRecyclerView)
         resultsRecyclerView.layoutManager = LinearLayoutManager(this)
-        userAdapter = UserAdapter(emptyList())
+
+        // Initialize adapter with the click listener logic
+        userAdapter = UserAdapter(emptyList()) { user ->
+            onUserClicked(user)
+        }
         resultsRecyclerView.adapter = userAdapter
 
         val homeButton = findViewById<Button>(R.id.homebutton)
@@ -61,6 +67,7 @@ class SeventhActivity : AppCompatActivity() {
             background = null
             hint = "Search"
             textSize = 16f
+            // Assuming R.color.dark_grey and R.color.black are defined
             setHintTextColor(ContextCompat.getColor(this@SeventhActivity, R.color.dark_grey))
             setTextColor(ContextCompat.getColor(this@SeventhActivity, R.color.black))
             setPadding(0, 0, 0, 0)
@@ -70,6 +77,9 @@ class SeventhActivity : AppCompatActivity() {
         }
         searchBarContainer.addView(searchEditText)
 
+        // --- Event Listeners ---
+
+
         // Show keyboard when EditText is clicked
         searchEditText.setOnClickListener {
             searchEditText.requestFocus()
@@ -77,29 +87,28 @@ class SeventhActivity : AppCompatActivity() {
             imm.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT)
         }
 
-        // Setup search functionality
+        // Setup search functionality (debouncing)
         setupSearchFunctionality()
-
 
         // Navigation buttons
         homeButton.setOnClickListener {
             startActivity(Intent(this, FifthActivity::class.java))
+            finish()
         }
 
         searchButton.setOnClickListener {
             startActivity(Intent(this, SixthActivity::class.java))
+            finish()
         }
 
         // Clear button functionality
         clearButton.setOnClickListener {
+            // Simple visual feedback for the button press
             clearButton.alpha = 0.5f
             clearButton.postDelayed({
                 clearButton.alpha = 1f
                 searchEditText.text.clear()
-                searchEditText.clearFocus()
-                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
-                showDefaultResults()
+                // Do not hide keyboard after clearing text unless necessary
             }, 100)
         }
 
@@ -114,15 +123,12 @@ class SeventhActivity : AppCompatActivity() {
     private fun setupSearchFunctionality() {
         searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Remove previous pending search request (debouncing)
                 searchRunnable?.let { searchHandler.removeCallbacks(it) }
                 val query = s.toString().trim()
-                if (query.isEmpty()) {
-                    showDefaultResults()
-                    return
-                }
                 searchRunnable = Runnable { searchUsers(query) }
+                // Wait 500ms after the last character typed before executing search
                 searchHandler.postDelayed(searchRunnable!!, 500)
             }
 
@@ -131,6 +137,11 @@ class SeventhActivity : AppCompatActivity() {
     }
 
     private fun searchUsers(query: String) {
+        if (query.isEmpty()) {
+            runOnUiThread { displaySearchResults(emptyList()) }
+            return
+        }
+
         Executors.newSingleThreadExecutor().execute {
             try {
                 val url = URL(SERVER_URL)
@@ -144,6 +155,8 @@ class SeventhActivity : AppCompatActivity() {
 
                 val jsonBody = JSONObject()
                 jsonBody.put("query", query)
+                // Sending the selected filter to the backend
+                jsonBody.put("filter", selectedTab)
 
                 OutputStreamWriter(connection.outputStream).use {
                     it.write(jsonBody.toString())
@@ -179,85 +192,37 @@ class SeventhActivity : AppCompatActivity() {
                     } else {
                         runOnUiThread {
                             Log.e("SearchUsers", "Search failed: ${jsonResponse.optString("message")}")
+                            displaySearchResults(emptyList())
                         }
                     }
                 } else {
-                    runOnUiThread { Log.e("SearchUsers", "HTTP Error: ${connection.responseCode}") }
+                    runOnUiThread {
+                        Log.e("SearchUsers", "HTTP Error: ${connection.responseCode}")
+                        displaySearchResults(emptyList())
+                    }
                 }
                 connection.disconnect()
             } catch (e: Exception) {
                 e.printStackTrace()
-                runOnUiThread { Log.e("SearchUsers", "Error: ${e.message}") }
+                runOnUiThread {
+                    Log.e("SearchUsers", "Error: ${e.message}")
+                    displaySearchResults(emptyList())
+                }
             }
         }
+    }
+
+    // Function added to handle user clicks and launch TwentyFirstActivity
+    private fun onUserClicked(user: User) {
+        val intent = Intent(this, TwentyFirstActivity::class.java)
+        // Pass the clicked user's ID to the profile screen (TwentyFirstActivity)
+        intent.putExtra("USER_ID", user.id)
+        startActivity(intent)
     }
 
     private fun displaySearchResults(users: List<User>) {
-        userAdapter = UserAdapter(users)
-        resultsRecyclerView.adapter = userAdapter
+        // Use the adapter's update method for efficient list refreshing
+        userAdapter?.updateUsers(users)
+        // You might want to show a 'No results' message here if users.isEmpty()
     }
-
-    private fun showDefaultResults() {
-        Log.d("SearchResults", "Showing default results")
-    }
-
-    private fun switchTab(
-        tab: String,
-        tabTop: TextView,
-        tabAccounts: TextView,
-        tabTags: TextView,
-        tabPlaces: TextView,
-        lineIndicator: View
-    ) {
-        selectedTab = tab
-
-        val tabs = listOf(tabTop, tabAccounts, tabTags, tabPlaces)
-        tabs.forEach {
-            it.setTextColor(ContextCompat.getColor(this, R.color.dark_grey))
-            it.setTypeface(null, android.graphics.Typeface.NORMAL)
-        }
-
-        when (tab) {
-            "Top" -> {
-                tabTop.setTextColor(ContextCompat.getColor(this, R.color.black))
-                tabTop.setTypeface(null, android.graphics.Typeface.BOLD)
-                animateLineIndicator(lineIndicator, 0f, 80)
-            }
-            "Accounts" -> {
-                tabAccounts.setTextColor(ContextCompat.getColor(this, R.color.black))
-                tabAccounts.setTypeface(null, android.graphics.Typeface.BOLD)
-                animateLineIndicator(lineIndicator, 85f, 110)
-                if (searchEditText.text.isNotEmpty()) searchUsers(searchEditText.text.toString())
-            }
-            "Tags" -> {
-                tabTags.setTextColor(ContextCompat.getColor(this, R.color.black))
-                tabTags.setTypeface(null, android.graphics.Typeface.BOLD)
-                animateLineIndicator(lineIndicator, 195f, 60)
-            }
-            "Places" -> {
-                tabPlaces.setTextColor(ContextCompat.getColor(this, R.color.black))
-                tabPlaces.setTypeface(null, android.graphics.Typeface.BOLD)
-                animateLineIndicator(lineIndicator, 270f, 75)
-            }
-        }
-    }
-
-    private fun animateLineIndicator(lineIndicator: View, startMargin: Float, width: Int) {
-        val params = lineIndicator.layoutParams as androidx.constraintlayout.widget.ConstraintLayout.LayoutParams
-        lineIndicator.animate()
-            .translationX(startMargin * resources.displayMetrics.density)
-            .setDuration(200)
-            .start()
-        params.width = (width * resources.displayMetrics.density).toInt()
-        lineIndicator.layoutParams = params
-    }
-
-    data class User(
-        val id: Int,
-        val username: String,
-        val fullName: String,
-        val profileImage: String,
-        val bio: String,
-        val followersCount: Int
-    )
 }
