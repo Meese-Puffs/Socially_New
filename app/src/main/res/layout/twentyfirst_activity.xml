@@ -86,6 +86,23 @@
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="15dp"/>
 
+            <!-- NEW: Online Status TextView -->
+            <TextView
+                android:id="@+id/onlineStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Offline"
+                android:textSize="12sp"
+                android:textColor="@color/light_grey"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@+id/name"
+                app:layout_constraintBottom_toBottomOf="@+id/name"
+                app:layout_constraintStart_toEndOf="@+id/Verified"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                />
+            <!-- END NEW -->
+
             <ImageView
                 android:id="@+id/Face"
                 android:layout_width="90dp"
@@ -599,7 +616,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginLeft="121dp"
                 android:layout_marginTop="593dp"
-                />
+            />
 
             <ImageView
                 android:layout_width="120dp"

@@ -1,5 +1,6 @@
 package com.Ahmad_Kamran.i230622
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -14,6 +15,7 @@ import java.util.concurrent.Executors
 
 class TwentyFirstActivity : AppCompatActivity() {
 
+    // IMPORTANT: Make sure this URL points to the updated PHP file name if you changed it.
     private val SERVER_URL = "http://192.168.18.51/socially_api/get_user_profile.php"
 
     private lateinit var profileName: TextView
@@ -21,6 +23,7 @@ class TwentyFirstActivity : AppCompatActivity() {
     private lateinit var profileBio: TextView
     private lateinit var profileImage: ImageView
     private lateinit var statusMessage: TextView // To show "Loading" or "Error"
+    private lateinit var onlineStatus: TextView // NEW: To show Online/Offline status
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,7 @@ class TwentyFirstActivity : AppCompatActivity() {
         profileBio = findViewById(R.id.bio3)
         profileImage = findViewById(R.id.Face)
         statusMessage = findViewById(R.id.bio2) // Add a TextView for status
+        onlineStatus = findViewById(R.id.onlineStatus) // NEW: Initialize the status TextView
 
         // 1. Get the USER_ID from the Intent
         val userId = intent.getIntExtra("USER_ID", -1)
@@ -49,10 +53,10 @@ class TwentyFirstActivity : AppCompatActivity() {
 
     private fun fetchUserProfile(userId: Int) {
         statusMessage.text = "Loading profile..."
+        onlineStatus.text = "" // Clear status while loading
 
         Executors.newSingleThreadExecutor().execute {
             try {
-                // Construct the URL to fetch the profile data
                 val urlString = "$SERVER_URL?id=$userId"
                 val url = URL(urlString)
                 val connection = url.openConnection() as HttpURLConnection
@@ -71,8 +75,10 @@ class TwentyFirstActivity : AppCompatActivity() {
                     val jsonResponse = JSONObject(response.toString())
 
                     if (jsonResponse.getBoolean("success")) {
-                        // The server successfully returned the user data
                         val userObj = jsonResponse.getJSONObject("user")
+
+                        // NEW: Extract the online status boolean
+                        val isOnline = userObj.optBoolean("isOnline", false)
 
                         // Use runOnUiThread to update the UI on the main thread
                         runOnUiThread {
@@ -84,11 +90,20 @@ class TwentyFirstActivity : AppCompatActivity() {
                             profileUsername.text = "@${userObj.optString("username", "N/A")}"
                             profileBio.text = userObj.optString("bio", "No bio provided.")
 
+                            // 4. Set the Online/Offline status text and color
+                            if (isOnline) {
+                                onlineStatus.text = "Online"
+                                // Use a suitable green color for online
+                                onlineStatus.setTextColor(Color.parseColor("#4CAF50"))
+                            } else {
+                                onlineStatus.text = "Offline"
+                                // Use a gray or red color for offline
+                                onlineStatus.setTextColor(Color.parseColor("#9E9E9E"))
+                            }
+
+
                             val imageUrl = userObj.optString("profileImage", "")
                             // TODO: Use a library like Glide or Picasso here to load imageUrl into profileImage
-                            // Example: Glide.with(this).load(imageUrl).into(profileImage)
-                            // For now, if you are not using a library, the image won't load from URL.
-
                             Log.d("ProfileLoad", "Profile loaded for ID: $userId")
                         }
                     } else {
