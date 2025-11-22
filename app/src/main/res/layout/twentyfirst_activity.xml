@@ -25,9 +25,10 @@
         android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- Back Chevron and Options (Static) -->
             <ImageView
                 android:id="@+id/chevron"
                 android:layout_width="wrap_content"
@@ -36,7 +37,7 @@
                 app:tint="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="13dp"/>
 
             <Button
@@ -60,9 +61,10 @@
                 app:tint="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="320dp"
+                android:layout_marginStart="320dp"
                 android:layout_marginTop="25dp"/>
 
+            <!-- User Info Section -->
             <ImageView
                 android:id="@+id/Verified"
                 android:layout_width="wrap_content"
@@ -70,28 +72,27 @@
                 android:src="@drawable/verfied_badge"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="198dp"
+                android:layout_marginStart="198dp"
                 android:layout_marginTop="18dp"/>
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="joshua_l"
+                tools:text="joshua_l"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="140dp"
+                android:layout_marginStart="140dp"
                 android:layout_marginTop="15dp"/>
 
-            <!-- NEW: Online Status TextView -->
             <TextView
                 android:id="@+id/onlineStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Offline"
+                tools:text="Online"
                 android:textSize="12sp"
                 android:textColor="@color/light_grey"
                 android:layout_marginStart="8dp"
@@ -99,15 +100,13 @@
                 app:layout_constraintBottom_toBottomOf="@+id/name"
                 app:layout_constraintStart_toEndOf="@+id/Verified"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"
                 />
-            <!-- END NEW -->
 
             <ImageView
                 android:id="@+id/Face"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@drawable/face5"
+                tools:src="@drawable/face5"
                 android:background="@drawable/circle_background"
                 android:scaleType="centerCrop"
                 android:clipToOutline="true"
@@ -117,17 +116,18 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="70dp"/>
 
+            <!-- Dynamic Follower Count (followerNum) -->
             <TextView
                 android:id="@+id/postNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="54"
+                tools:text="54"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="130dp"
+                android:layout_marginStart="130dp"
                 android:layout_marginTop="95dp"/>
 
             <TextView
@@ -139,20 +139,20 @@
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="120dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginTop="115dp"/>
 
             <TextView
                 android:id="@+id/followerNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="834"
+                tools:text="834"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="200dp"
+                android:layout_marginStart="200dp"
                 android:layout_marginTop="95dp"/>
 
             <TextView
@@ -164,20 +164,20 @@
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="180dp"
+                android:layout_marginStart="180dp"
                 android:layout_marginTop="115dp"/>
 
             <TextView
                 android:id="@+id/followingNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="162"
+                tools:text="162"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="280dp"
+                android:layout_marginStart="280dp"
                 android:layout_marginTop="95dp"/>
 
             <TextView
@@ -189,27 +189,27 @@
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="265dp"
+                android:layout_marginStart="265dp"
                 android:layout_marginTop="115dp"/>
 
             <TextView
                 android:id="@+id/bio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="joshua_l"
+                tools:text="Joshua Lawson"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="165dp"/>
 
             <TextView
                 android:id="@+id/mentionBar"
                 android:layout_width="80dp"
                 android:layout_height="15dp"
-                android:paddingLeft="30dp"
+                android:paddingStart="30dp"
                 android:paddingTop="0dp"
                 android:text="joshua_l"
                 android:textSize="10sp"
@@ -218,7 +218,7 @@
                 android:backgroundTint="@color/light_grey"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="190dp"/>
 
             <ImageView
@@ -228,7 +228,7 @@
                 android:src="@drawable/mention"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="192dp" />
 
             <TextView
@@ -240,32 +240,35 @@
                 android:textColor="@color/light_grey"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="205dp"/>
 
             <TextView
                 android:id="@+id/bio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint... more"
+                tools:text="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint... more"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="225dp"/>
+
+            <!-- ... other elements ... -->
+            <!-- Note: Cropping repeated image blocks for brevity but keeping essential layout structure -->
 
             <TextView
                 android:id="@+id/link"
                 android:layout_width="80dp"
                 android:layout_height="25dp"
-                android:text="joshua_l"
+                tools:text="joshua_l"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="290dp"/>
 
             <ImageView
@@ -275,7 +278,7 @@
                 android:src="@drawable/link"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="290dp"/>
 
 
@@ -283,7 +286,7 @@
                 android:id="@+id/following_profile"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:paddingTop="5dp"
                 android:text="Following"
                 android:textSize="14sp"
@@ -292,7 +295,7 @@
                 android:backgroundTint="@color/light_grey"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="315dp"/>
 
             <ImageView
@@ -303,14 +306,14 @@
                 android:rotation="270"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="95dp"
+                android:layout_marginStart="95dp"
                 android:layout_marginTop="323dp"/>
 
             <TextView
                 android:id="@+id/message_profile"
                 android:layout_width="90dp"
                 android:layout_height="30dp"
-                android:paddingLeft="15dp"
+                android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:text="Message"
                 android:textSize="14sp"
@@ -319,14 +322,14 @@
                 android:backgroundTint="@color/light_grey"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="125dp"
+                android:layout_marginStart="125dp"
                 android:layout_marginTop="315dp"/>
 
             <TextView
                 android:id="@+id/email_profile"
                 android:layout_width="90dp"
                 android:layout_height="30dp"
-                android:paddingLeft="25dp"
+                android:paddingStart="25dp"
                 android:paddingTop="5dp"
                 android:text="Email"
                 android:textSize="14sp"
@@ -335,7 +338,7 @@
                 android:backgroundTint="@color/light_grey"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="225dp"
+                android:layout_marginStart="225dp"
                 android:layout_marginTop="315dp"/>
 
             <ImageView
@@ -351,7 +354,7 @@
                 android:backgroundTint="@color/light_grey"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="325dp"
+                android:layout_marginStart="325dp"
                 android:layout_marginTop="315dp"/>
 
 
@@ -379,7 +382,7 @@
                 android:textColor="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="280dp"
+                android:layout_marginStart="280dp"
                 android:layout_marginTop="410dp"/>
 
             <Button
@@ -427,7 +430,7 @@
                 android:textColor="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="77dp"
+                android:layout_marginStart="77dp"
                 android:layout_marginTop="410dp"/>
 
             <ImageView
@@ -464,7 +467,7 @@
                 android:textColor="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="148dp"
+                android:layout_marginStart="148dp"
                 android:layout_marginTop="410dp"/>
 
             <ImageView
@@ -501,9 +504,10 @@
                 android:textColor="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="209dp"
+                android:layout_marginStart="209dp"
                 android:layout_marginTop="410dp"/>
 
+            <!-- Image Grid/Footer (Unmodified) -->
             <ImageView
                 android:id="@+id/Fun"
                 android:layout_width="50dp"
@@ -527,7 +531,7 @@
                 android:textColor="@color/light_magenta"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="410dp"/>
 
             <ImageView
@@ -584,7 +588,7 @@
                 android:src="@drawable/crystals_modified"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="121dp"
+                android:layout_marginStart="121dp"
                 android:layout_marginTop="479dp"
                 />
 
@@ -594,7 +598,7 @@
                 android:src="@drawable/crystals_modified"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="242dp"
+                android:layout_marginStart="242dp"
                 android:layout_marginTop="479dp"
                 />
 
@@ -614,9 +618,9 @@
                 android:src="@drawable/crystals_modified"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="121dp"
+                android:layout_marginStart="121dp"
                 android:layout_marginTop="593dp"
-            />
+                />
 
             <ImageView
                 android:layout_width="120dp"
@@ -624,7 +628,7 @@
                 android:src="@drawable/crystals_modified"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="242dp"
+                android:layout_marginStart="242dp"
                 android:layout_marginTop="593dp"
                 />
 
@@ -644,7 +648,7 @@
                 android:src="@drawable/crystals_modified"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="121dp"
+                android:layout_marginStart="121dp"
                 android:layout_marginTop="707dp"
                 />
 
@@ -654,7 +658,7 @@
                 android:src="@drawable/crystals_modified"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginLeft="242dp"
+                android:layout_marginStart="242dp"
                 android:layout_marginTop="707dp"
                 />
 
@@ -670,7 +674,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="690dp"/>
 
-
     <ImageView
         android:id="@+id/Heart"
         android:layout_width="27dp"
@@ -684,6 +687,7 @@
         android:layout_marginTop="698dp"/>
 
     <Button
+
         android:id="@+id/searchButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -693,6 +697,8 @@
         android:layout_marginTop="698dp"
         android:background="@android:color/transparent"
         />
+
+
 
     <Button
         android:id="@+id/homebutton"
@@ -704,6 +710,8 @@
         android:layout_marginTop="700dp"
         android:background="@android:color/transparent"
         />
+
+
 
     <ImageView
         android:id="@+id/MiniMe"
@@ -718,7 +726,5 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="311dp"
         android:layout_marginTop="700dp"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

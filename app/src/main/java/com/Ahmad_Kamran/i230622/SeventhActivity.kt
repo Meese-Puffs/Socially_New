@@ -2,18 +2,16 @@ package com.Ahmad_Kamran.i230622
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONObject
@@ -24,9 +22,12 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.Executors
 
+/**
+ * SeventhActivity handles user search functionality with debouncing.
+ * It relies on external definitions for the 'User' data class and 'UserAdapter' class.
+ */
 class SeventhActivity : AppCompatActivity() {
 
-    private var selectedTab = "Top" // Tracks the currently selected filter tab
     private lateinit var resultsRecyclerView: RecyclerView
     private var userAdapter: UserAdapter? = null
     private lateinit var searchEditText: EditText
@@ -38,13 +39,12 @@ class SeventhActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Ensure you have R.id.tabTop, R.id.tabAccounts, R.id.tabMedia in your layout
         setContentView(R.layout.seventh_activity)
 
         resultsRecyclerView = findViewById(R.id.resultsRecyclerView)
         resultsRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Initialize adapter with the click listener logic
+        // UserAdapter is used here, relying on its definition in a separate file.
         userAdapter = UserAdapter(emptyList()) { user ->
             onUserClicked(user)
         }
@@ -67,9 +67,8 @@ class SeventhActivity : AppCompatActivity() {
             background = null
             hint = "Search"
             textSize = 16f
-            // Assuming R.color.dark_grey and R.color.black are defined
-            setHintTextColor(ContextCompat.getColor(this@SeventhActivity, R.color.dark_grey))
-            setTextColor(ContextCompat.getColor(this@SeventhActivity, R.color.black))
+            setHintTextColor(Color.GRAY)
+            setTextColor(Color.BLACK)
             setPadding(0, 0, 0, 0)
             isFocusable = true
             isFocusableInTouchMode = true
@@ -78,7 +77,6 @@ class SeventhActivity : AppCompatActivity() {
         searchBarContainer.addView(searchEditText)
 
         // --- Event Listeners ---
-
 
         // Show keyboard when EditText is clicked
         searchEditText.setOnClickListener {
@@ -103,12 +101,11 @@ class SeventhActivity : AppCompatActivity() {
 
         // Clear button functionality
         clearButton.setOnClickListener {
-            // Simple visual feedback for the button press
             clearButton.alpha = 0.5f
             clearButton.postDelayed({
                 clearButton.alpha = 1f
                 searchEditText.text.clear()
-                // Do not hide keyboard after clearing text unless necessary
+                displaySearchResults(emptyList())
             }, 100)
         }
 
@@ -120,6 +117,9 @@ class SeventhActivity : AppCompatActivity() {
         }, 100)
     }
 
+    /**
+     * Sets up TextWatcher for the search bar to implement debouncing.
+     */
     private fun setupSearchFunctionality() {
         searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -136,6 +136,9 @@ class SeventhActivity : AppCompatActivity() {
         })
     }
 
+    /**
+     * Executes the API call to search for users based on the query.
+     */
     private fun searchUsers(query: String) {
         if (query.isEmpty()) {
             runOnUiThread { displaySearchResults(emptyList()) }
@@ -143,9 +146,10 @@ class SeventhActivity : AppCompatActivity() {
         }
 
         Executors.newSingleThreadExecutor().execute {
+            var connection: HttpURLConnection? = null
             try {
                 val url = URL(SERVER_URL)
-                val connection = url.openConnection() as HttpURLConnection
+                connection = url.openConnection() as HttpURLConnection
                 connection.requestMethod = "POST"
                 connection.setRequestProperty("Content-Type", "application/json")
                 connection.doOutput = true
@@ -155,8 +159,6 @@ class SeventhActivity : AppCompatActivity() {
 
                 val jsonBody = JSONObject()
                 jsonBody.put("query", query)
-                // Sending the selected filter to the backend
-                jsonBody.put("filter", selectedTab)
 
                 OutputStreamWriter(connection.outputStream).use {
                     it.write(jsonBody.toString())
@@ -178,12 +180,17 @@ class SeventhActivity : AppCompatActivity() {
                         for (i in 0 until usersArray.length()) {
                             val userObj = usersArray.getJSONObject(i)
                             users.add(
+                                // Constructing User object based on your external User class structure
                                 User(
                                     id = userObj.getInt("id"),
                                     username = userObj.getString("username"),
-                                    fullName = userObj.optString("fullName", ""),
-                                    profileImage = userObj.optString("profileImage", ""),
-                                    bio = userObj.optString("bio", ""),
+                                    firstName = userObj.getString("firstName"),
+                                    lastName = userObj.getString("lastName"),
+                                    dateOfBirth = userObj.optString("dateOfBirth", ""),
+                                    email = userObj.optString("email", ""),
+
+                                    profileImage = userObj.optString("profileImage", null),
+                                    bio = userObj.optString("bio", null),
                                     followersCount = userObj.optInt("followersCount", 0)
                                 )
                             )
@@ -193,26 +200,32 @@ class SeventhActivity : AppCompatActivity() {
                         runOnUiThread {
                             Log.e("SearchUsers", "Search failed: ${jsonResponse.optString("message")}")
                             displaySearchResults(emptyList())
+                            Toast.makeText(this@SeventhActivity, "Search failed: ${jsonResponse.optString("message", "No results.")}", Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
                     runOnUiThread {
                         Log.e("SearchUsers", "HTTP Error: ${connection.responseCode}")
                         displaySearchResults(emptyList())
+                        Toast.makeText(this@SeventhActivity, "Server Error: HTTP ${connection.responseCode}", Toast.LENGTH_LONG).show()
                     }
                 }
-                connection.disconnect()
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {
                     Log.e("SearchUsers", "Error: ${e.message}")
                     displaySearchResults(emptyList())
+                    Toast.makeText(this@SeventhActivity, "Network connection error.", Toast.LENGTH_LONG).show()
                 }
+            } finally {
+                connection?.disconnect()
             }
         }
     }
 
-    // Function added to handle user clicks and launch TwentyFirstActivity
+    /**
+     * Handles the click event when a user item is selected from the list.
+     */
     private fun onUserClicked(user: User) {
         val intent = Intent(this, TwentyFirstActivity::class.java)
         // Pass the clicked user's ID to the profile screen (TwentyFirstActivity)
@@ -220,9 +233,10 @@ class SeventhActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    /**
+     * Updates the RecyclerView with the new list of search results.
+     */
     private fun displaySearchResults(users: List<User>) {
-        // Use the adapter's update method for efficient list refreshing
         userAdapter?.updateUsers(users)
-        // You might want to show a 'No results' message here if users.isEmpty()
     }
 }

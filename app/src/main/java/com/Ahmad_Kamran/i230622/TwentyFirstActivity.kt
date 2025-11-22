@@ -18,25 +18,31 @@ class TwentyFirstActivity : AppCompatActivity() {
     // IMPORTANT: Make sure this URL points to the updated PHP file name if you changed it.
     private val SERVER_URL = "http://192.168.18.51/socially_api/get_user_profile.php"
 
+    // UI elements for profile details
     private lateinit var profileName: TextView
-    private lateinit var profileUsername: TextView
+    private lateinit var profileUsername: TextView // This likely holds the user's full name based on the XML layout
     private lateinit var profileBio: TextView
     private lateinit var profileImage: ImageView
     private lateinit var statusMessage: TextView // To show "Loading" or "Error"
-    private lateinit var onlineStatus: TextView // NEW: To show Online/Offline status
+    private lateinit var onlineStatus: TextView // To show Online/Offline status
+
+    // NEW: TextView for the follower count
+    private lateinit var followerNumTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // NOTE: You must have a layout file named 'twenty_first_activity.xml'
         setContentView(R.layout.twentyfirst_activity)
 
-        // Initialize UI components (replace with your actual IDs)
-        profileName = findViewById(R.id.name)
-        profileUsername = findViewById(R.id.bio1)
+        // Initialize UI components
+        profileName = findViewById(R.id.name) // Username 'joshua_l'
+        profileUsername = findViewById(R.id.bio1) // Full name 'Joshua Lawson'
         profileBio = findViewById(R.id.bio3)
         profileImage = findViewById(R.id.Face)
-        statusMessage = findViewById(R.id.bio2) // Add a TextView for status
-        onlineStatus = findViewById(R.id.onlineStatus) // NEW: Initialize the status TextView
+        statusMessage = findViewById(R.id.bio2) // Using the 'Blogger' field for temporary status updates
+        onlineStatus = findViewById(R.id.onlineStatus)
+
+        // NEW: Initialize the follower count TextView
+        followerNumTextView = findViewById(R.id.followerNum)
 
         // 1. Get the USER_ID from the Intent
         val userId = intent.getIntExtra("USER_ID", -1)
@@ -54,6 +60,7 @@ class TwentyFirstActivity : AppCompatActivity() {
     private fun fetchUserProfile(userId: Int) {
         statusMessage.text = "Loading profile..."
         onlineStatus.text = "" // Clear status while loading
+        followerNumTextView.text = "..." // Show loading indicator for count
 
         Executors.newSingleThreadExecutor().execute {
             try {
@@ -77,8 +84,9 @@ class TwentyFirstActivity : AppCompatActivity() {
                     if (jsonResponse.getBoolean("success")) {
                         val userObj = jsonResponse.getJSONObject("user")
 
-                        // NEW: Extract the online status boolean
+                        // Data extraction
                         val isOnline = userObj.optBoolean("isOnline", false)
+                        val followersCount = userObj.optInt("followersCount", 0) // <-- DYNAMIC VALUE
 
                         // Use runOnUiThread to update the UI on the main thread
                         runOnUiThread {
@@ -86,24 +94,25 @@ class TwentyFirstActivity : AppCompatActivity() {
                             statusMessage.text = ""
 
                             // 3. Display the data
-                            profileName.text = userObj.optString("fullName", "N/A")
-                            profileUsername.text = "@${userObj.optString("username", "N/A")}"
+
+                            // Set the dynamic follower count
+                            followerNumTextView.text = followersCount.toString() // <--- UPDATE HERE
+
+                            // Update other profile details
+                            profileName.text = userObj.optString("username", "N/A") // Username
+                            profileUsername.text = userObj.optString("fullName", "N/A") // Full Name
                             profileBio.text = userObj.optString("bio", "No bio provided.")
 
                             // 4. Set the Online/Offline status text and color
                             if (isOnline) {
                                 onlineStatus.text = "Online"
-                                // Use a suitable green color for online
                                 onlineStatus.setTextColor(Color.parseColor("#4CAF50"))
                             } else {
                                 onlineStatus.text = "Offline"
-                                // Use a gray or red color for offline
                                 onlineStatus.setTextColor(Color.parseColor("#9E9E9E"))
                             }
 
-
                             val imageUrl = userObj.optString("profileImage", "")
-                            // TODO: Use a library like Glide or Picasso here to load imageUrl into profileImage
                             Log.d("ProfileLoad", "Profile loaded for ID: $userId")
                         }
                     } else {
@@ -111,6 +120,7 @@ class TwentyFirstActivity : AppCompatActivity() {
                         val message = jsonResponse.optString("message", "User not found.")
                         runOnUiThread {
                             statusMessage.text = "Error loading user: $message"
+                            followerNumTextView.text = "0" // Reset on error
                             Log.e("ProfileLoad", "Server reported error: $message")
                         }
                     }
@@ -118,6 +128,7 @@ class TwentyFirstActivity : AppCompatActivity() {
                     // HTTP connection error
                     runOnUiThread {
                         statusMessage.text = "Error loading user: HTTP ${connection.responseCode}"
+                        followerNumTextView.text = "0" // Reset on error
                         Log.e("ProfileLoad", "HTTP Error: ${connection.responseCode}")
                     }
                 }
@@ -126,6 +137,7 @@ class TwentyFirstActivity : AppCompatActivity() {
                 e.printStackTrace()
                 runOnUiThread {
                     statusMessage.text = "Error loading user: Network failure."
+                    followerNumTextView.text = "0" // Reset on error
                     Log.e("ProfileLoad", "Network Error: ${e.message}")
                 }
             }
