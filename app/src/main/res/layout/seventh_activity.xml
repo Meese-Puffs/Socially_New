@@ -14,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="0dp"/>
 
+
     <ImageView
         android:id="@+id/status_bar"
         android:layout_width="0dp"
@@ -21,9 +22,9 @@
         android:src="@drawable/status_bar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        />
 
-    <!-- Search bar container -->
     <FrameLayout
         android:id="@+id/searchBarContainer"
         android:layout_width="270dp"
@@ -34,22 +35,6 @@
         android:layout_marginStart="10dp"
         android:background="@drawable/search_bar">
 
-        <!-- EditText for search -->
-        <EditText
-            android:id="@+id/searchEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Search"
-            android:textSize="16sp"
-            android:background="@null"
-            android:paddingStart="36dp"
-            android:paddingEnd="36dp"
-            android:textColor="@color/black"
-            android:singleLine="true"
-            android:imeOptions="actionSearch"
-            android:inputType="text"/>
-
-        <!-- Search icon -->
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -57,7 +42,6 @@
             android:layout_marginStart="10dp"
             android:src="@drawable/search"/>
 
-        <!-- Close icon -->
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -65,7 +49,32 @@
             android:layout_marginEnd="10dp"
             android:src="@drawable/close"
             app:tint="@color/light_magenta"/>
+
+        <TextView
+            android:id="@+id/subtitle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="45dp"
+            android:text="internshala"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:clickable="false"
+            android:focusable="false"/>
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:textSize="20sp"
+        android:textColor="@color/light_magenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="85dp"/>
+
 
     <TextView
         android:id="@+id/suggestion1"
@@ -78,7 +87,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="130dp"
-        android:layout_marginLeft="25dp" />
+        android:layout_marginLeft="25dp"/>
+
 
     <TextView
         android:id="@+id/suggestion2"
@@ -90,7 +100,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="130dp"
-        android:layout_marginLeft="85dp" />
+        android:layout_marginLeft="85dp"/>
 
     <TextView
         android:id="@+id/suggestion3"
@@ -102,7 +112,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="130dp"
-        android:layout_marginLeft="195dp" />
+        android:layout_marginLeft="195dp"/>
 
     <TextView
         android:id="@+id/suggestion4"
@@ -114,7 +124,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="130dp"
-        android:layout_marginLeft="270dp" />
+        android:layout_marginLeft="270dp"/>
 
     <View
         android:id="@+id/line"
@@ -123,78 +133,273 @@
         android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="167dp" />
+        android:layout_marginTop="167dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/resultsRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/searchBarContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="40dp"/>
-
-
-    <!-- Clear button -->
     <TextView
-        android:id="@+id/Clear"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/blue_circle"
+        android:gravity="center"
+        android:text="IS"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear"
-        android:textSize="20sp"
-        android:textColor="@color/light_magenta"
-        app:layout_constraintTop_toTopOf="@id/searchBarContainer"
-        app:layout_constraintStart_toEndOf="@id/searchBarContainer"
+        android:gravity="center"
+        android:text="internshala"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="190dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="internshala"
+        android:textColor="@color/dark_grey"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="205dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/hashtag"
+        android:padding="10dp"
+        android:background="@drawable/hashtag_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="0dp"/>
+        android:layout_marginTop="240dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="#internshala"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1000+ posts"
+        android:textColor="@color/dark_grey"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="265dp"/>
 
 
-    <!-- Bottom navigation & other elements omitted for brevity -->
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/hashtag"
+        android:padding="10dp"
+        android:background="@drawable/hashtag_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="300dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="#internshala_nomoretheory_challenge"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="310dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="500+ posts"
+        android:textColor="@color/dark_grey"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="325dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/hashtag"
+        android:padding="10dp"
+        android:background="@drawable/hashtag_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="360dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Internshala"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="370dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Internshala, B-610,Untech Business Zone,..."
+        android:textColor="@color/dark_grey"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="385dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/hashtag"
+        android:padding="10dp"
+        android:background="@drawable/hashtag_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="420dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="internshalastudentpartner"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="430dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="500+ posts"
+        android:textColor="@color/dark_grey"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="445dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/hashtag"
+        android:padding="10dp"
+        android:background="@drawable/hashtag_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="480dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="internshalaincampus"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="490dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="100+ posts"
+        android:textColor="@color/dark_grey"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="505dp"/>
+
 
     <ImageView
         android:id="@+id/active_tab_feed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:src="@drawable/active_tab_feed"
-        android:layout_marginTop="680dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="680dp"/>
 
     <ImageView
         android:id="@+id/Heart"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@drawable/like"
-        android:background="@color/white"
-        android:layout_marginStart="238dp"
-        android:layout_marginTop="693dp"
         app:tint="@color/light_magenta"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="238dp"
+        android:layout_marginTop="693dp"/>
 
     <Button
         android:id="@+id/homebutton"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="690dp"
         android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
     <Button
         android:id="@+id/searchbutton"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="690dp"
         android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
+
 
     <ImageView
         android:id="@+id/MiniMe"
@@ -205,9 +410,14 @@
         android:scaleType="centerCrop"
         android:clipToOutline="true"
         android:outlineProvider="background"
-        android:layout_marginStart="305dp"
-        android:layout_marginTop="690dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="305dp"
+        android:layout_marginTop="690dp"/>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

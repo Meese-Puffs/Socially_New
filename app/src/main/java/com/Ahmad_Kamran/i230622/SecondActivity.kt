@@ -2,36 +2,15 @@ package com.Ahmad_Kamran.i230622
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
-import android.util.Log
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import org.json.JSONObject
-import java.io.OutputStreamWriter
-import java.net.HttpURLConnection
-import java.net.URL
-import java.net.SocketTimeoutException
-import java.util.concurrent.Executors
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SecondActivity : AppCompatActivity() {
-
-    private val SERVER_URL = "http://192.168.18.51/socially_api/register_user.php"
-
-    private lateinit var usernameBox: EditText
-    private lateinit var nameBox: EditText
-    private lateinit var lastNameBox: EditText
-    private lateinit var dobBox: EditText
-    private lateinit var emailBox: EditText
-    private lateinit var passwordBox: EditText
-    private lateinit var createAccountButton: TextView
-    private lateinit var visibilityIcon: ImageView
-
-    private var isPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,136 +22,46 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 
-        // Initialize UI components from XML
-        usernameBox = findViewById(R.id.username_box)
-        nameBox = findViewById(R.id.YourName_box)
-        lastNameBox = findViewById(R.id.YourLastName_box)
-        dobBox = findViewById(R.id.DateOfBirth_box)
-        emailBox = findViewById(R.id.Email_box)
-        passwordBox = findViewById(R.id.Password_box)
-        createAccountButton = findViewById(R.id.create_account)
-        visibilityIcon = findViewById(R.id.visibility)
-        val backArrow = findViewById<ImageView>(R.id.arrow)
+        val back = findViewById<ImageView>(R.id.arrow)
+        val createAccountButton = findViewById<TextView>(R.id.create_account)
 
-        // Set initial password visibility state (masked)
-        passwordBox.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        val usernameInput = findViewById<EditText>(R.id.username_box)
+        val firstNameInput = findViewById<EditText>(R.id.YourName_box)
+        val lastNameInput = findViewById<EditText>(R.id.YourLastName_box)
+        val dobInput = findViewById<EditText>(R.id.DateOfBirth_box)
+        val emailInput = findViewById<EditText>(R.id.Email_box)
+        val passwordInput = findViewById<EditText>(R.id.Password_box)
 
+        back.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
         createAccountButton.setOnClickListener {
-            registerUser()
-        }
+            val username = usernameInput.text.toString().trim()
+            val email = emailInput.text.toString().trim()
+            val password = passwordInput.text.toString().trim()
 
-        backArrow.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
-
-    private fun registerUser() {
-        // Retrieve input values without any checks
-        val username = usernameBox.text.toString().trim()
-        val firstName = nameBox.text.toString().trim()
-        val lastName = lastNameBox.text.toString().trim()
-        val dob = dobBox.text.toString().trim()
-        val email = emailBox.text.toString().trim()
-        val password = passwordBox.text.toString().trim()
-
-        // NO CLIENT-SIDE VALIDATION CHECKS ARE PERFORMED HERE.
-
-        // Disable button and show loading feedback
-        createAccountButton.isEnabled = false
-        createAccountButton.text = "Registering..."
-
-        // 2. Prepare JSON Payload
-        val jsonInput = JSONObject().apply {
-            put("username", username)
-            put("firstName", firstName)
-            put("lastName", lastName)
-            put("dateOfBirth", dob)
-            put("email", email)
-            put("password", password)
-        }
-
-        // 3. Execute Network Call on a Background Thread
-        Executors.newSingleThreadExecutor().execute {
-            var connection: HttpURLConnection? = null
-            try {
-                val url = URL(SERVER_URL)
-                connection = url.openConnection() as HttpURLConnection
-                connection.requestMethod = "POST"
-                connection.setRequestProperty("Content-Type", "application/json")
-                connection.doOutput = true
-                connection.connectTimeout = 10000 // 10 seconds to connect
-                connection.readTimeout = 10000    // 10 seconds to read data
-
-                // Write the JSON payload
-                OutputStreamWriter(connection.outputStream).use { writer ->
-                    writer.write(jsonInput.toString())
-                    writer.flush()
-                }
-
-                val responseCode = connection.responseCode
-
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    // Read response from server
-                    val response = connection.inputStream.bufferedReader().use { it.readText() }
-
-                    try {
-                        val jsonResponse = JSONObject(response)
-                        if (jsonResponse.getBoolean("success")) {
-                            val responseMessage = jsonResponse.optString("message", "Registration successful!")
-                            runOnUiThread {
-                                Toast.makeText(this, responseMessage, Toast.LENGTH_LONG).show()
-                                val intent = Intent(this, ThirdActivity::class.java)
-                                startActivity(intent)
-                                finish()
-                            }
-                        } else {
-                            val responseMessage = jsonResponse.optString("message", "Registration failed.")
-                            runOnUiThread {
-                                Toast.makeText(this, responseMessage, Toast.LENGTH_LONG).show()
-                            }
-                        }
-                    } catch (jsonE: Exception) {
-                        Log.e("Registration", "Error parsing server response: ${jsonE.message}. Response: $response", jsonE)
-                        runOnUiThread {
-                            Toast.makeText(this, "Received invalid data from server.", Toast.LENGTH_LONG).show()
-                        }
-                    }
-
-                } else if (responseCode >= 400) {
-                    // Handle specific client/server errors like 404, 500. Try to read error stream.
-                    val errorResponse = connection.errorStream?.bufferedReader()?.use { it.readText() } ?: "No error message provided."
-                    Log.e("Registration", "HTTP Error $responseCode. Server response: $errorResponse")
-                    runOnUiThread {
-                        Toast.makeText(this, "Server responded with error: HTTP $responseCode.", Toast.LENGTH_LONG).show()
-                    }
-                } else {
-                    runOnUiThread {
-                        Toast.makeText(this, "Registration failed with unexpected HTTP code: $responseCode", Toast.LENGTH_LONG).show()
-                    }
-                }
-            } catch (e: SocketTimeoutException) {
-                Log.e("Registration", "Timeout Error: ${e.message}", e)
-                runOnUiThread {
-                    Toast.makeText(this, "Connection timed out. Please check your network.", Toast.LENGTH_LONG).show()
-                }
-            } catch (e: Exception) {
-                Log.e("Registration", "General Network/Registration Error: ${e.message}", e)
-                runOnUiThread {
-                    Toast.makeText(this, "A general error occurred. Check server URL/connection.", Toast.LENGTH_LONG).show()
-                }
-            } finally {
-                connection?.disconnect()
-                // Re-enable button on failure/error
-                runOnUiThread {
-                    createAccountButton.isEnabled = true
-                    createAccountButton.text = "Create an Account"
-                }
+            if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            RetrofitClient.api.registerUser(username, email, password)
+                .enqueue(object : Callback<ApiResponse> {
+                    override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+                        val body = response.body()
+                        if (body != null && body.success) {
+                            Toast.makeText(this@SecondActivity, "Registration successful!", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@SecondActivity, FourthActivity::class.java))
+                        } else {
+                            Toast.makeText(this@SecondActivity, body?.message ?: "Registration failed", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+                        Toast.makeText(this@SecondActivity, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
         }
     }
-
-    // The validateInput function has been completely removed.
 }
